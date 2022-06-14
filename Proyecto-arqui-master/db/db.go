@@ -37,7 +37,7 @@ func init() {
 		log.Info("Connection Established")
 	}
 
-	// We need to add all CLients that we build
+	// build cliente/añadir
 	categoryClient.Db = db
 	productClient.Db = db
 	userClient.Db = db
@@ -48,7 +48,7 @@ func init() {
 }
 
 func StartDbEngine() {
-	// We need to migrate all classes model.
+	// Migracion de clases
 	db.AutoMigrate(&model.User{})
 	db.AutoMigrate(&model.Product{})
 	db.AutoMigrate(&model.Category{})

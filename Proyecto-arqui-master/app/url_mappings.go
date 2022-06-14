@@ -12,29 +12,29 @@ import (
 )
 
 func mapUrls() {
-	// Category Mapping
+	// Category
 	router.GET("/home", categoryController.GetCategories)
 
-	// Products Mapping
-	router.GET("/products/:id_product", productController.GetProductById)
+	// Products
+	router.GET("/product/:id", productController.GetProductById)
 	router.GET("/products", productController.GetProducts)
 	router.GET("/products/category/:name", productController.GetProductsByCategoryName)
 	router.GET("/search-products/:search", productController.GetProductsBySearch)
 
-	// Details Mapping
-	router.GET("/detail/:id_order", detailController.GetDetailsByOrderId)
+	// Details
+	router.GET("/detail/:id", detailController.GetDetailsByOrderId)
 
-	// Orders Mapping
-	router.GET("/order/:id_user", orderController.GetOrdersByUserId)
+	// Orders
+	router.GET("/order/:id", orderController.GetOrdersByUserId)
 	router.GET("/order", orderController.GetOrders)
 	router.POST("/new-order", orderController.InsertOrder)
 
-	// Users Mapping
-	router.GET("/user/:id_user", userController.GetUserById)
+	// Users
+	router.GET("/user/:id", userController.GetUserById)
 	router.GET("/users", userController.GetUsers)
 	router.GET("/login", userController.Login)
 
-	// Cart Mapping
+	// Carrito
 	router.GET("/cart/:id", cartController.GetCartById)
 	router.POST("/cart", cartController.InsertCart)
 

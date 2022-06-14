@@ -11,12 +11,11 @@ import (
 )
 
 func GetUserById(c *gin.Context) {
-	log.Debug("User id to load: " + c.Param("id_user"))
-
-	id, _ := strconv.Atoi(c.Param("id_user"))
+	log.Debug("User id to load: " + c.Param("id"))
+	id, _ := strconv.Atoi(c.Param("id")) //transformamos id de array a int
 	var userDto dto.UserDto
 
-	userDto, err := service.UserService.GetUserById(id)
+	userDto, err := service.UserService.GetUserById(id) //llama al service
 
 	if err != nil {
 		c.JSON(err.Status(), err)
@@ -39,7 +38,7 @@ func GetUsers(c *gin.Context) {
 
 func Login(c *gin.Context) {
 	var loginDto dto.LoginDto
-	err := c.BindJSON(&loginDto) //agarra el body de request y lo trata de meter dentro de la estructura dto
+	err := c.BindJSON(&loginDto) //utiliza el body de request y lo mete dentro del dto
 
 	// Error Parsing json param
 	if err != nil {

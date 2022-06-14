@@ -28,7 +28,7 @@ func (s *categoryService) GetCategories() (dto.CategoriesDto, e.ApiError) {
 
 	for _, category := range categories {
 		var categoryDto dto.CategoryDto
-		categoryDto.Id_category = category.Id
+		categoryDto.Id = category.Id
 		categoryDto.Name = category.Name
 
 		categoriesDto = append(categoriesDto, categoryDto)

@@ -28,8 +28,6 @@ func GetUsers() model.Users {
 	return users
 }
 
-/////////////////////////LOGIN///////////////////////////////
-
 func GetUserByUserName(loginDto dto.LoginDto) model.User {
 	var user model.User
 	Db.Where("user_name = ?", loginDto.UserName).First(&user)

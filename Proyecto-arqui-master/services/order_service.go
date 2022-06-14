@@ -36,7 +36,7 @@ func (s *orderService) GetOrders() (dto.OrdersDto, e.ApiError) {
 	for _, order := range orders {
 		var orderDto dto.OrderDto
 
-		orderDto.Id_order = order.Id
+		orderDto.Id = order.Id
 		orderDto.Total = order.Total
 		orderDto.Id_user = order.Id_user
 
@@ -58,7 +58,7 @@ func (s *orderService) GetOrdersByUserId(id int) (dto.OrdersDto, e.ApiError) {
 	for _, order := range orders {
 		var orderDto dto.OrderDto
 
-		orderDto.Id_order = order.Id
+		orderDto.Id = order.Id
 		orderDto.Total = order.Total
 		orderDto.Id_user = order.Id_user
 

@@ -12,8 +12,8 @@ import (
 
 func GetDetailsByOrderId(c *gin.Context) {
 
-	log.Debug("Order id to load: " + c.Param("id_user"))
-	id, _ := strconv.Atoi(c.Param("id_user"))
+	log.Debug("Order id to load: " + c.Param("id"))
+	id, _ := strconv.Atoi(c.Param("id"))
 
 	var detailsDto dto.DetailsDto
 	detailsDto, err := service.DetailService.GetDetailsByOrderId(id)

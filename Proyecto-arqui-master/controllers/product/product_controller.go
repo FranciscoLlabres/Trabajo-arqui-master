@@ -11,9 +11,9 @@ import (
 )
 
 func GetProductById(c *gin.Context) {
-	log.Debug("Product id to load: " + c.Param("id_product"))
+	log.Debug("Product id to load: " + c.Param("id"))
 
-	id, _ := strconv.Atoi(c.Param("id_product"))
+	id, _ := strconv.Atoi(c.Param("id"))
 	var productDto dto.ProductDto
 
 	productDto, err := service.ProductService.GetProductById(id)

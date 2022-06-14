@@ -34,7 +34,7 @@ func (s *productService) GetProductById(id int) (dto.ProductDto, e.ApiError) {
 		return productDto, e.NewBadRequestApiError("product not found")
 	}
 
-	productDto.Id_product = product.Id
+	productDto.Id = product.Id
 	productDto.Name = product.Name
 	productDto.Price = product.Price
 	productDto.Picture = product.Picture
@@ -49,7 +49,7 @@ func (s *productService) GetProducts() (dto.ProductsDto, e.ApiError) {
 
 	for _, product := range products {
 		var productDto dto.ProductDto
-		productDto.Id_product = product.Id
+		productDto.Id = product.Id
 		productDto.Name = product.Name
 		productDto.Price = product.Price
 		productDto.Picture = product.Picture
@@ -74,7 +74,7 @@ func (s *productService) GetProductsByCategoryName(name string) (dto.ProductsDto
 
 	for _, product := range products {
 		var productDto dto.ProductDto
-		productDto.Id_product = product.Id
+		productDto.Id = product.Id
 		productDto.Name = product.Name
 		productDto.Price = product.Price
 		productDto.Picture = product.Picture
@@ -98,7 +98,7 @@ func (s *productService) GetProductsBySearch(search string) (dto.ProductsDto, e.
 
 	for _, product := range products {
 		var productDto dto.ProductDto
-		productDto.Id_product = product.Id
+		productDto.Id = product.Id
 		productDto.Name = product.Name
 		productDto.Price = product.Price
 		productDto.Picture = product.Picture

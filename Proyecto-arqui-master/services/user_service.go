@@ -35,7 +35,7 @@ func (s *userService) GetUserById(id int) (dto.UserDto, e.ApiError) {
 	userDto.Name = user.Name
 	userDto.LastName = user.LastName
 	userDto.UserName = user.UserName
-	userDto.Id_user = user.Id
+	userDto.Id = user.Id
 	return userDto, nil
 }
 
@@ -49,7 +49,7 @@ func (s *userService) GetUsers() (dto.UsersDto, e.ApiError) {
 		userDto.Name = user.Name
 		userDto.LastName = user.LastName
 		userDto.UserName = user.UserName
-		userDto.Id_user = user.Id
+		userDto.Id = user.Id
 
 		usersDto = append(usersDto, userDto)
 	}
@@ -72,6 +72,6 @@ func (s *userService) LoginUser(loginDto dto.LoginDto) (dto.TokenDto, e.ApiError
 
 	tokenDto.Token = fmt.Sprintf("%d", user.Id)
 
-	return tokenDto, nil //crear token, si no hay errores y devuelve nil porque no hay error
+	return tokenDto, nil
 
 }

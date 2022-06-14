@@ -12,8 +12,8 @@ import (
 
 func GetOrdersByUserId(c *gin.Context) {
 
-	log.Debug("Order id to load: " + c.Param("id_user"))
-	id, _ := strconv.Atoi(c.Param("id_user"))
+	log.Debug("Order id to load: " + c.Param("id"))
+	id, _ := strconv.Atoi(c.Param("id"))
 
 	var ordersDto dto.OrdersDto
 	ordersDto, err := service.OrderService.GetOrdersByUserId(id)
