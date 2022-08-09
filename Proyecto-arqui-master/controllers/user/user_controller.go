@@ -50,9 +50,28 @@ func Login(c *gin.Context) {
 	tokenDto, er := service.UserService.LoginUser(loginDto)
 
 	if er != nil {
-		panic("") //c.JSON(http.StatusBadRequest, err.Error()) parecido
+		c.JSON(http.StatusUnauthorized, err.Error())
 	}
 
 	c.JSON(http.StatusAccepted, tokenDto)
+}
 
+func UserInsert(c *gin.Context) {
+	var userDto dto.UserDto
+	err := c.BindJSON(&userDto)
+
+	if err != nil {
+		log.Error(err.Error())
+		c.JSON(http.StatusBadRequest, err.Error())
+		return
+	}
+
+	userDto, er := service.UserService.InsertUser(userDto)
+
+	if er != nil {
+		c.JSON(er.Status(), er)
+		return
+	}
+
+	c.JSON(http.StatusCreated, userDto)
 }

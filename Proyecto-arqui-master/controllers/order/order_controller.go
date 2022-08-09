@@ -58,7 +58,7 @@ func InsertOrder(c *gin.Context) { //usar precondition fail 412 y mostrar error 
 	//Chequea el stock y si no hay disponible, devuelve un 412
 	if ok == false {
 		c.JSON(http.StatusPreconditionFailed, id)
-		fmt.Println(" Error 412, no se encuentra stock disponible ")
+		fmt.Println(" No se encuentra stock disponible ")
 		return
 	}
 

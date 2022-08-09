@@ -34,7 +34,7 @@ func InsertOrder(order model.Order) model.Order {
 		//TODO Manage Errors
 		log.Error("")
 	}
-	log.Debug("Order Created: ", order.Id)
+	log.Debug("Orden creada: ", order.Id)
 	return order
 }
 

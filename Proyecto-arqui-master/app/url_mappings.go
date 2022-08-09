@@ -32,6 +32,7 @@ func mapUrls() {
 	router.GET("/user/:id", userController.GetUserById)
 	router.GET("/users", userController.GetUsers)
 	router.GET("/login", userController.Login)
+	router.POST("/user", userController.UserInsert)
 
 	log.Info("Finishing mappings configuration")
 }

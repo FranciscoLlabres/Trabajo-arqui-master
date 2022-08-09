@@ -14,6 +14,7 @@ type userServiceInterface interface {
 	GetUserById(id int) (dto.UserDto, e.ApiError)
 	GetUsers() (dto.UsersDto, e.ApiError)
 	LoginUser(loginDto dto.LoginDto) (dto.TokenDto, e.ApiError)
+	InsertUser(userDto dto.UserDto) (dto.UserDto, e.ApiError)
 }
 
 var (
@@ -74,4 +75,20 @@ func (s *userService) LoginUser(loginDto dto.LoginDto) (dto.TokenDto, e.ApiError
 
 	return tokenDto, nil
 
+}
+
+func (s *userService) InsertUser(userDto dto.UserDto) (dto.UserDto, e.ApiError) {
+
+	var user model.User
+
+	user.FirstName = userDto.FirstName
+	user.LastName = userDto.LastName
+	user.UserName = userDto.UserName
+	user.Password = userDto.Password
+
+	user = userCliente.InsertUser(user)
+
+	userDto.Id = user.Id
+
+	return userDto, nil
 }

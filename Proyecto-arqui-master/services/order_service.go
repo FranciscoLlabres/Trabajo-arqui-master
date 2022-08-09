@@ -62,8 +62,6 @@ func (s *orderService) GetOrdersByUserId(id int) (dto.OrdersDto, e.ApiError) {
 		orderDto.Total = order.Total
 		orderDto.Id_user = order.Id_user
 		orderDto.Date = order.Date
-	
-
 		ordersDto = append(ordersDto, orderDto)
 	}
 
