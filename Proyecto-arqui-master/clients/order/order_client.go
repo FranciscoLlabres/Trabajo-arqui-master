@@ -11,6 +11,7 @@ var Db *gorm.DB
 
 func GetOrdersByUserId(id int) model.Orders {
 	var orders model.Orders
+	log.Debug("idUser: ", id)
 	Db.Where("id = ?", id).Find(&orders)
 	log.Debug("Orders: ", orders)
 

@@ -1,11 +1,16 @@
 package services
 
 import (
-	"fmt"
+	"crypto/md5"
 	userCliente "mvc-go/clients/user"
 	"mvc-go/dto"
 	"mvc-go/model"
 	e "mvc-go/utils/errors"
+
+	"encoding/hex"
+
+	"github.com/dgrijalva/jwt-go"
+	log "github.com/sirupsen/logrus"
 )
 
 type userService struct{}
@@ -58,22 +63,35 @@ func (s *userService) GetUsers() (dto.UsersDto, e.ApiError) {
 	return usersDto, nil
 }
 
-func (s *userService) LoginUser(loginDto dto.LoginDto) (dto.TokenDto, e.ApiError) { //develve (dto.TokenDto, e.ApiError)
-	var tokenDto dto.TokenDto //genera un token dto vacio
+//login con el uso de hash md5
+var jwtKey = []byte("key")
 
-	user := userCliente.GetUserByUserName(loginDto)
+func (s *userService) LoginUser(loginDto dto.LoginDto) (dto.TokenDto, e.ApiError) {
+
+	log.Debug(loginDto)
+	var user model.User = userCliente.GetUserByUserName(loginDto)
+
+	var tokenDto dto.TokenDto
 
 	if user.Id == 0 {
 		return tokenDto, e.NewBadRequestApiError("user not found")
 	}
 
-	if user.Password != loginDto.Password {
-		return tokenDto, e.NewBadRequestApiError("Bad password")
+	var pswMd5 = md5.Sum([]byte(loginDto.Password))
+	pswMd5String := hex.EncodeToString(pswMd5[:])
+
+	if pswMd5String == user.Password {
+		token := jwt.NewWithClaims(jwt.SigningMethodHS256, jwt.MapClaims{
+			"id_user": user.Id,
+		})
+		tokenString, _ := token.SignedString(jwtKey)
+		tokenDto.Token = tokenString
+		tokenDto.IdUser = user.Id
+
+		return tokenDto, nil
+	} else {
+		return tokenDto, e.NewBadRequestApiError("contraseña incorrecta")
 	}
-
-	tokenDto.Token = fmt.Sprintf("%d", user.Id)
-
-	return tokenDto, nil
 
 }
 
