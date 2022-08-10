@@ -64,12 +64,12 @@ func (s *userService) GetUsers() (dto.UsersDto, e.ApiError) {
 }
 
 //login con el uso de hash md5
-var jwtKey = []byte("key")
+var jwtKey = []byte("secret_key")
 
 func (s *userService) LoginUser(loginDto dto.LoginDto) (dto.TokenDto, e.ApiError) {
 
 	log.Debug(loginDto)
-	var user model.User = userCliente.GetUserByUserName(loginDto)
+	var user model.User = userCliente.GetUserByUserName(loginDto.UserName)
 
 	var tokenDto dto.TokenDto
 

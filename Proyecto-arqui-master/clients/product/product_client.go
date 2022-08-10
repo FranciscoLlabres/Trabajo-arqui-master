@@ -71,5 +71,3 @@ func GetProductsBySearch(text string) model.Products {
 
 	return products
 }
-
-//seacth url fija (poner bien el query)

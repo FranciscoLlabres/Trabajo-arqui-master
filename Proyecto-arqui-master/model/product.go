@@ -10,5 +10,4 @@ type Product struct {
 	Id_category int     `gorm:"type:varchar(150)"`
 }
 
-
 type Products []Product
