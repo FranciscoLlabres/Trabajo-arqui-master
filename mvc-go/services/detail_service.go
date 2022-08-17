@@ -32,7 +32,7 @@ func (s *detailService) GetDetailsByOrderId(id int) (dto.DetailsDto, e.ApiError)
 
 	for _, orderDetailRes := range details {
 		var detailDto dto.DetailDto
-		detailDto.Id = orderDetailRes.Id_detail
+		detailDto.Id = orderDetailRes.Id
 		detailDto.Nombre = orderDetailRes.Nombre
 		detailDto.Cantidad = orderDetailRes.Cantidad
 		detailDto.PrecioUnitario = orderDetailRes.Precio_Unitario

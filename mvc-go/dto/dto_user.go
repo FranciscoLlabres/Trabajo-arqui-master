@@ -7,6 +7,7 @@ type UserDto struct {
 	UserName  string `json:"user_name"`
 	Password  string `json:"password"`
 	Address   string `json:"address"`
+	Email     string `json:"email"`
 }
 
 type UsersDto []UserDto

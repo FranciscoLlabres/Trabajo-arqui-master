@@ -1,17 +1,12 @@
 package services
 
 import (
-	//"crypto/md5"
-	//"encoding/hex"
-	//"fmt"
 	userCliente "mvc-go/clients/user"
 	"mvc-go/dto"
 	"mvc-go/model"
 	e "mvc-go/utils/errors"
 
 	"golang.org/x/crypto/bcrypt"
-	//"github.com/dgrijalva/jwt-go"
-	//log "github.com/sirupsen/logrus"
 )
 
 type userService struct{}
@@ -45,6 +40,7 @@ func (s *userService) GetUserById(id int) (dto.UserDto, e.ApiError) {
 	userDto.Id = user.Id
 	userDto.Password = user.Password
 	userDto.Address = user.Address
+	userDto.Email = user.Email
 	return userDto, nil
 }
 
@@ -108,6 +104,8 @@ func (s *userService) InsertUser(userDto dto.UserDto) (dto.UserDto, e.ApiError) 
 	user.LastName = userDto.LastName
 	user.UserName = userDto.UserName
 	user.Password = userDto.Password
+	userDto.Address = user.Address
+	userDto.Email = user.Email
 
 	user = userCliente.InsertUser(user)
 

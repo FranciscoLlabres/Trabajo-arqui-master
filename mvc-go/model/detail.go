@@ -1,7 +1,7 @@
 package model
 
 type Detail struct {
-	Id_detail       int     `gorm:"primaryKey"`
+	Id              int     `gorm:"primaryKey"`
 	Id_order        int     `gorm:"type:varchar(150);not null"`
 	Id_product      int     `gorm:"type:varchar(150);not null"`
 	Precio_Unitario float32 `gorm:"type:varchar(150);not null"`
