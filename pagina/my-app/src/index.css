@@ -1,0 +1,167 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.App{
+max-width: 1500px;
+width: 100%;
+min-height: 100vh;
+margin: 0 auto;
+box-shadow: 0 2px 6px #08a050;  
+padding: 0 15px;
+box-sizing: border-box;
+}
+
+/* HEADER */
+header{
+  width: 97%;
+  min-height: 100px;
+  max-width: 1530px;
+  overflow: hidden;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  position: fixed;
+  box-sizing: border-box;
+  background-color: white;
+  box-shadow: 0 5px 10px #08a02b;
+}
+
+a{
+  color: black;
+  text-decoration: none;
+text-transform: uppercase;
+}
+
+a:hover{
+  color:aqua;
+}
+
+li{
+  list-style: none;
+}
+
+header ul{
+  display: flex;
+  padding: 0;
+  margin: 0;
+}
+
+header ul li{
+  padding: 0 1rem;
+}
+
+header ul li a{
+  font-weight: bold;
+}
+
+header .cart{
+position: relative;
+cursor: pointer;
+}
+
+/* PRODUCTS */
+.title{
+  font-size: 2rem;
+  padding: 10rem 0 0 0;
+  color:#08a02b;
+}
+
+.products{
+padding: 5rem 1rem;
+margin: 0 auto;
+display: grid;
+grid-template-columns:repeat(auto-fit, minmax(22rem, 1fr));
+gap: 3rem 2rem;
+box-sizing: border-box;
+}
+
+.product{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 1px 10px 10px 2px rgba(0,0,0,.2);
+  border: 6px transparent solid;
+  border-radius: 5px;
+}
+
+.product:hover{
+  border:6px solid #08a02b;
+}
+
+.product_img img{
+  width: 150px;
+}
+
+.product_footer{
+  padding: 1rem;
+}
+
+.product_footer h1{
+font-weight: 600;
+font-size: 1.5rem;
+color:black;
+font-family: Arial, Helvetica, sans-serif;
+}
+
+.product_footer p{
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 19px;
+}
+
+.product_footer .price{
+  font-size: 2rem;
+  color: black;
+}
+
+.product .button{
+  width: 100%;
+}
+
+.button .buy{
+  border:none;
+  outline: 0;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.button button{
+  background-color: grey;
+  max-width: 250px;
+  width: 100%;
+  margin: 0 auto;
+ font-size: 1.5rem;
+ color: white;
+ font-weight: 600;
+}
+
+.button div{
+ background-color:#08a02b;
+ display: grid;
+ align-items: center;
+ margin-left: -2rem;
+ border-radius:5px ;
+ text-align: center;
+}
+
+.button div a{
+  color:white;
+  font-weight: 711;
+}
+
+.button div a:hover{
+color: white;
+}
