@@ -5,10 +5,15 @@ import { ProductItem } from "./ProductItem"
 
 export const ListaDeProductos = () => {
 
-    const value = useContext(DataContext)
-    const [products] = value.productos
-
-    console.log(products)
+    const [productos,setProductos] = useState([]);
+    const fetchApi = async()=>{
+    const response = await fetch('http://localhost:8090/productRandom/9')
+    .then((response) => response.json());
+    setProductos(response);
+    };
+    useEffect(()=>{
+    fetchApi();
+    },[])
 
     return (
         <>
