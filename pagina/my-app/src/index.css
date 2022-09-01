@@ -25,7 +25,7 @@ box-sizing: border-box;
 
 /* HEADER */
 header{
-  width: 97%;
+  width: 100%;
   min-height: 100px;
   max-width: 1530px;
   overflow: hidden;
@@ -164,4 +164,20 @@ font-family: Arial, Helvetica, sans-serif;
 
 .button div a:hover{
 color: white;
+}
+
+/* Inicio */
+.inicio{
+  width: 100%;
+  margin: 0 auto;
+  padding-top: 7rem;
+}
+
+.inicio h1{
+  font-size: 2rem;
+  color: #08a02b;
+}
+
+.inicio img{
+  width: 100%;
 }

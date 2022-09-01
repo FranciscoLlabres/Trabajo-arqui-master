@@ -1,64 +1,38 @@
-import React from 'react'
-import IMG from '../../images/img01.jpg'
+import React, { useContext } from 'react'
+import { DataContext } from "../../context/Dataprovider";
+import { ProductItem } from "./ProductItem"
 
 
-export const ListaDeProductos = () =>{
-    return(
+export const ListaDeProductos = () => {
+
+    const value = useContext(DataContext)
+    const [products] = value.productos
+
+    console.log(products)
+
+    return (
         <>
-        <h1 className='title'>PRODUCTOS</h1>
-        <div className='products'>
-            <div className='product'>
-            <a href = '/#'>
-            <div className='product_img'>
-            <img src={IMG} alt=""/> 
+            <h1 className='title'>PRODUCTOS</h1>
+            <div className='products'>
+                <div className='product'>
+                    {
+                        products.map(product => (
+                            <ProductItem
+                                key={producto.id}
+                                id={producto.id}
+                                name={producto.name}
+                                base_price={producto.base_price}
+                                id_category={producto.id_category}
+                                stock={producto.stock}
+                                picture_url={producto.picture_url}
+                                description={producto.description}
+                            />
+
+                            
+                        ))
+                    }
+                </div>
             </div>
-            </a>
-            <div className='product_footer'>
-            <h1>Nike</h1>
-            <p>Zapatillas</p>
-            <p className='price'>$1459</p>
-            </div>
-            <div className='button'>
-                <button className='buy'>
-                    Comprar
-                </button>
-            </div>
-            </div>
-        </div>
-        <div className='product'>
-            <a href = '/#'>
-            <div className='product_img'>
-            <img src={IMG} alt=""/> 
-            </div>
-            </a>
-            <div className='product_footer'>
-            <h1>Nike</h1>
-            <p>Zapatillas</p>
-            <p className='price'>$1459</p>
-            </div>
-            <div className='button'>
-                <button className='buy'>
-                    Comprar
-                </button>
-            </div>
-            </div>
-            <div className='product'>
-            <a href = '/#'>
-            <div className='product_img'>
-            <img src={IMG} alt=""/> 
-            </div>
-            </a>
-            <div className='product_footer'>
-            <h1>Nike</h1>
-            <p>Zapatillas</p>
-            <p className='price'>$1459</p>
-            </div>
-            <div className='button'>
-                <button className='buy'>
-                    Comprar
-                </button>
-            </div>
-            </div>                                                                                                                                                                                                                                                                                          
         </>
-        )
+    )
 }
