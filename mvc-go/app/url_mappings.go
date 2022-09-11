@@ -12,7 +12,7 @@ import (
 
 func mapUrls() {
 	// Category
-	router.GET("/home", categoryController.GetCategories)
+	router.GET("/categories", categoryController.GetCategories)
 
 	// Products
 	router.GET("/product/:id", productController.GetProductById)
