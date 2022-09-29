@@ -108,12 +108,12 @@ function Home() {
   const [failedSearch, setFailedSearch] = useState(false)
 
 
-  if (Cookie.get("user_id") > -1 && !isLogged) {
+  if (Cookie.get("id_user") > -1 && !isLogged) {
     getUserById(Cookie.get("user_id")).then(response => setUser(response))
     setIsLogged(true)
   }
 
-  if (!(Cookie.get("user_id") > -1) && isLogged) {
+  if (!(Cookie.get("id_user") > -1) && isLogged) {
     setIsLogged(false)
   }
 
