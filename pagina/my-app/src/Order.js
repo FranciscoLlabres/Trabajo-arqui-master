@@ -81,3 +81,21 @@ function showProducts(products){
       </div>
     ) 
   }
+
+  async function getOrderProducts(){
+    let items = []
+    let a = Cookie.get("order").split(";")
+  
+    for (let i = 0; i < a.length; i++){
+      let item = a[i];
+      if(item != ""){
+        let array = item.split(",")
+        let id = array[0]
+        let quantity = array[1]
+        let product = await getProductById(id)
+        product.quantity = quantity;
+        items.push(product)
+      }
+    }
+    return items
+  }
