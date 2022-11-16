@@ -1,5 +1,5 @@
-import React, { useState } from "React";
-import Cookies from "universal-cookie"
+import React, { useState } from "react";
+import Cookies from "universal-cookie";
 
 const Cookie = new Cookies();
 
@@ -52,10 +52,6 @@ async function getProductBySearch(query) {
   }).then(response => response.json())
 }
 
-function goto(path) {
-  window.location = window.location.origin + path
-}
-
 function retry() {
   goto("/")
 }
@@ -65,16 +61,17 @@ function logout() {
   document.location.reload()
 }
 
+/*
 function productsByCategoryId(id, setter, categorySetter) {
   getProductsByCategoryId(id).then(response => { setter(response); Cookie.set("category", id); getCategoryById(id).then(category => categorySetter(category)) })
 }
 
 function showCategories(categories, setter, categorySetter) {
   return categories.map((category, i) => <a onClick={() => productsByCategoryId(category.category_id, setter, categorySetter)} obj={category} key={category.category_id}>{category.name}</a>)
-}
+}*/
 
 
-
+/*
 function ProductsView(products, setCartItems) {
   return products.map((product) =>
 
@@ -95,6 +92,7 @@ function ProductsView(products, setCartItems) {
     </div>
   )
 }
+*/
 
 function Home() {
   const [isLogged, setIsLogged] = useState(false)
@@ -158,7 +156,7 @@ function Home() {
 
 }
 
-
+export default Home;
 
 
 
