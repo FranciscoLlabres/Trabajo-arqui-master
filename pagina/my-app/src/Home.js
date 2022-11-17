@@ -71,16 +71,16 @@ function showCategories(categories, setter, categorySetter) {
 }*/
 
 
-/*
+
 function ProductsView(products, setCartItems) {
   return products.map((product) =>
 
-    <div obj={product} key={product.product_id} className="product">
-      <div onClick={() => goto("/product?id=" + product.product_id)}>
+    <div obj={product} key={product.id_product} className="product">
+      <div onClick={() => goto("/product?id=" + product.id_product)}>
         <img width="128px" height="128px" src={"./images/" + product.picture_url} onError={(e) => (e.target.onerror = null, e.target.src = "./images/default.jpg")} />
       </div>
       <a className="name">{product.name}</a>
-      <a className="addcart" onClick={() => addToCart(product.product_id, setCartItems)}>Add to Cart</a>
+      <a className="addcart" onClick={() => addToCart(product.id_product, setCartItems)}>Add to Cart</a>
       <a className="price">{product.currency_id + "$" + product.base_price}</a>
       <div>
         <a className="description">{product.description}</a>
@@ -92,7 +92,7 @@ function ProductsView(products, setCartItems) {
     </div>
   )
 }
-*/
+
 
 function Home() {
   const [isLogged, setIsLogged] = useState(false)
@@ -107,7 +107,7 @@ function Home() {
 
 
   if (Cookie.get("id_user") > -1 && !isLogged) {
-    getUserById(Cookie.get("user_id")).then(response => setUser(response))
+    getUserById(Cookie.get("id_user")).then(response => setUser(response))
     setIsLogged(true)
   }
 

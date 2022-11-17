@@ -157,7 +157,7 @@ const complete = (
 
 const error = (
   <div>
-  <div> ERROR : (((( </div>
+  <div> ERROR :</div>
   <div> Stock problems </div>
   <div> Error {Cookie.get("orderError")} </div>
   <h1> X </h1>
