@@ -8,6 +8,7 @@ type ProductDto struct {
 	Price       float32 `json:"price"`
 	Id_category int     `json:"id_category"`
 	Stock       int     `json:"quantity"`
+	Description string  `json:"description"`
 }
 
 type ProductsDto []ProductDto

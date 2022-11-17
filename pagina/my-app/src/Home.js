@@ -81,7 +81,7 @@ function ProductsView(products, setCartItems) {
       </div>
       <a className="name">{product.name}</a>
       <a className="addcart" onClick={() => addToCart(product.id_product, setCartItems)}>Add to Cart</a>
-      <a className="price">{product.currency_id + "$" + product.base_price}</a>
+      <a className="price">{"$" + product.price}</a>
       <div>
         <a className="description">{product.description}</a>
       </div>

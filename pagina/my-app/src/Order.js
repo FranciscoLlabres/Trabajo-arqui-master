@@ -45,12 +45,12 @@ function logout() {
 function showProducts(products) {
   return products.map((product) =>
     <div>
-      <div obj={product} key={product.product_id} className="product">
+      <div obj={product} key={product.id_product} className="product">
         <div>
           <img width="128px" height="128px" src={"../images/" + product.picture_url} onError={(e) => (e.target.onerror = null, e.target.src = "../images/default.jpg")} />
         </div>
         <a className="name">{product.name}</a>
-        <a className="price">{product.currency_id + "$" + product.base_price}</a>
+        <a className="price">{"$" + product.price}</a>
         <div>
           <a className="description">{product.description}</a>
         </div>
@@ -72,12 +72,7 @@ function showAddress(address) {
   return (
     <div className="orderAddress">
       ADDRESS N°{address.address_id}
-      <div><span className="orderAddressInfo"> Street: </span> <a className="orderAddressInfoLoad">{address.street1}</a> </div>
-      <div><span className="orderAddressInfo"> Street2: </span> <a className="orderAddressInfoLoad">{address.street2} </a> </div>
-      <div><span className="orderAddressInfo"> Number: </span> <a className="orderAddressInfoLoad">{address.number} </a> </div>
-      <div><span className="orderAddressInfo"> District: </span> <a className="orderAddressInfoLoad">{address.district} </a> </div>
-      <div><span className="orderAddressInfo"> City: </span> <a className="orderAddressInfoLoad">{address.city} </a> </div>
-      <div><span className="orderAddressInfo"> Country: </span> <a className="orderAddressInfoLoad">{address.country} </a> </div>
+      <div><span className="orderAddressInfo"> Street: </span> <a className="orderAddressInfoLoad">{user.address}</a> </div>
     </div>
   )
 }
