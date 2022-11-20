@@ -68,14 +68,6 @@ function showProducts(products) {
   )
 }
 
-function showAddress(address) {
-  return (
-    <div className="orderAddress">
-      ADDRESS N°{address.address_id}
-      <div><span className="orderAddressInfo"> Street: </span> <a className="orderAddressInfoLoad">{user.address}</a> </div>
-    </div>
-  )
-}
 
 async function getOrderProducts() {
   let items = []
@@ -95,15 +87,6 @@ async function getOrderProducts() {
   return items
 }
 
-
-async function getAddressById(id) {
-  return fetch("http://localhost:8090/address/" + id, {
-    method: "GET",
-    headers: {
-      "Content-Type": "application/json"
-    }
-  }).then(response => response.json())
-}
 
 
 //SET ORDER
@@ -129,10 +112,6 @@ function Order(){
   if (Cookie.get("id_user") > -1 && !isLogged) {
     getUserById(Cookie.get("id_user")).then(response => setUser(response))
     setIsLogged(true)
-
-    if (Cookie.get("address") > -1){
-      getAddressById(Cookie.get("address")).then(response => setAddress(response))
-    }
   }
 
   if (orderProducts.length <= 0 && Cookie.get("id_user") > -1){
@@ -160,16 +139,9 @@ const error = (
 )
 
 return (
-  <div className="status">
+  <div className="estatus">
     <div className="topnav">
-      <img src={logo} width="80px" height="80px" id="logo" onClick={()=>goto("/")} />
-      {isLogged ? login : <a id="login" onClick={() => goto("/login")}>Login</a>}
-    </div>
-
-
-
-    <div id="main">
-      {window.location.pathname.split("/")[2] == "complete" ? complete : error}
+    
     </div>
   </div>
 );
