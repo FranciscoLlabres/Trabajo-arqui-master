@@ -4,10 +4,10 @@ package dto
 type ProductDto struct {
 	Id          int     `json:"id_product"`
 	Name        string  `json:"name"`
-	Picture     string  `json:"picture_url"`
 	Price       float32 `json:"price"`
-	Id_category int     `json:"id_category"`
+	Picture     string  `json:"picture_url"`
 	Stock       int     `json:"stock"`
+	Id_category int     `json:"id_category"`
 	Description string  `json:"description"`
 }
 

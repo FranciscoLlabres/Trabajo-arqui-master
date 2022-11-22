@@ -6,8 +6,8 @@ type DetailDto struct {
 	Cantidad       float32 `json:"cantidad"`
 	Total          float32 `json:"total"`
 	Nombre         string  `json:"nombre"`
-	Id_order       int     `json:"id_order"`
 	Id_product     int     `json:"id_product"`
+	Id_order       int     `json:"id_order"`
 }
 
 type DetailsDto []DetailDto

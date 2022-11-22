@@ -55,6 +55,9 @@ func (s *userService) GetUsers() (dto.UsersDto, e.ApiError) {
 		userDto.LastName = user.LastName
 		userDto.UserName = user.UserName
 		userDto.Id = user.Id
+		userDto.Password = user.Password
+		userDto.Address = user.Address
+		userDto.Email = user.Email
 
 		usersDto = append(usersDto, userDto)
 	}
@@ -104,8 +107,8 @@ func (s *userService) InsertUser(userDto dto.UserDto) (dto.UserDto, e.ApiError) 
 	user.LastName = userDto.LastName
 	user.UserName = userDto.UserName
 	user.Password = userDto.Password
-	userDto.Address = user.Address
-	userDto.Email = user.Email
+	user.Address = userDto.Address
+	user.Email = userDto.Email
 
 	user = userCliente.InsertUser(user)
 
