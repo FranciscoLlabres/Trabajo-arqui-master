@@ -24,8 +24,7 @@ USE `comercio`;
 
 CREATE TABLE `categories` (
   `id` int(11) NOT NULL,
-  `name` varchar(255) NOT NULL,
-  `description` varchar(255) NOT NULL
+  `name` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -37,18 +36,18 @@ CREATE TABLE `categories` (
 --
 
 INSERT INTO `categories` VALUES
-(1, 'Celulares', `smartphones`),
-(2, 'Deporte y Fitness', `futbol,basquet,training`),
-(3, 'Televisores',`smart tvs`),
-(4, 'Indumentaria',`ropa para todos los talles`),
-(5, 'Videojuegos',`ps4,ps5,pc`),
-(6, 'Electrodomesticos',`lavarropas,microondas`),
-(7, 'Electronicos y Audio',`estereos`),
-(8, 'Computacion',`hardware para pc`),
-(9, 'Deco',`decoraciones varias para el hogar`),
-(10, 'Vehiculos',`repuestos y usados`),
-(11, 'Libros',`novelas`),
-(12, 'Perfumes',`importados y nacionales`);
+(1, 'Celulares'),
+(2, 'Deporte y Fitness'),
+(3, 'Televisores'),
+(4, 'Indumentaria'),
+(5, 'Videojuegos'),
+(6, 'Electrodomesticos'),
+(7, 'Electronicos y Audio'),
+(8, 'Computacion'),
+(9, 'Deco'),
+(10, 'Vehiculos'),
+(11, 'Libros'),
+(12, 'Perfumes');
 
 -- --------------------------------------------------------
 
@@ -60,7 +59,7 @@ CREATE TABLE `orders` (
   `id` int(11) NOT NULL,
   `id_user` int(11) NOT NULL,
   `fecha` datetime NOT NULL,
-  `monto_final` decimal(60,4) NOT NULL
+  `total` decimal(60,4) NOT NULL
 
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 

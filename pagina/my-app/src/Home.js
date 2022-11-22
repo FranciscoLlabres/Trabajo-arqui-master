@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Cookies from "universal-cookie";
+import swal from "sweetalert2";
 
 const Cookie = new Cookies();
 
@@ -9,6 +10,7 @@ async function getUserById(id) {
     headers: {
       'Content-Type': 'application/json'
     }
+  
   }).then(response => response.json())
 
 }
@@ -70,6 +72,79 @@ function showCategories(categories, setter, categorySetter) {
   return categories.map((category, i) => <a onClick={() => productsByCategoryId(category.category_id, setter, categorySetter)} obj={category} key={category.category_id}>{category.name}</a>)
 }*/
 
+export const ProductosBuscador = ()=>{
+
+  const [productos,setProductos] = useState([]);
+  const [busqueda, setBusqueda]= useState("");
+  const fetchApi = async()=>{
+    
+      const response = await fetch('http://localhost:8090/productText/'+busqueda)
+      .then((response) => response.json());
+      if (response.status == 400) {
+        swal.fire({
+          icon: 'error',
+          text: "No se encontro el producto",
+        }).then((result) => {
+          if (result.isConfirmed) {
+              window.location.reload();
+          }})
+     }else{
+      
+      setProductos(response)
+      console.log(response);
+     }
+      };
+
+  const handleChange=e=>{
+   setBusqueda(e.target.value);
+   
+ 
+    };
+
+    const handleSubmit= (event)=>{
+      event.preventDefault();
+      
+    
+      fetchApi();
+
+  };
+  
+  return(
+      <>
+      <h1 className="title"> PRODUCTOS</h1>
+      <div className="containerInput" >
+      <input
+         
+        className="form-control inputBuscar"
+        value={busqueda}
+        placeholder="Buscador de Productos"
+        onChange={handleChange}
+       
+      />
+      <input 
+      value = "Buscar"
+       type = "button"
+      onClick = {handleSubmit}
+      />
+    </div>
+      <div className="productos">
+          {
+              productos.map(producto =>(
+                <ProductoItem key={producto.id_product}
+                id={producto.id_product}
+                name={producto.name}
+                base_price={producto.price}
+                id_category={producto.id_category}
+                stock={producto.stock}
+                picture_url={producto.picture_url}
+                description={producto.description}
+                /> 
+              ))
+          }
+      </div> 
+      </>
+  )
+}
 
 
 function ProductsView(products, setCartItems) {
@@ -126,39 +201,14 @@ function Home() {
   }
 
 
-  if (!cartItems && Cookie.get("cartItems")) {
+  /*if (!cartItems && Cookie.get("cartItems")) {
     setCartItems(Cookie.get("cartItems"))
-  }
-
-  async function searchQuery(query){
-
-    await getProductBySearch(query).then(response=>{
-      console.log(query)
-      if(response != null){
-        if(response.length > 0){
-          setProducts(response)
-          setFailedSearch(false)
-        }else{
-          setProducts([])
-          setFailedSearch(true)
-        }
-      }
-      else{
-        setFailedSearch(false)
-        getProducts().then(response=>setProducts(response))
-      }
-    })
-
-
-  }
-
- 
-
+  }*/
 }
 
 export default Home;
 
-
+ 
 
 
 
