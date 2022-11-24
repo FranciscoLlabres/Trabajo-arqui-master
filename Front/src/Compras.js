@@ -1,7 +1,6 @@
 import React, { useState, List, Checkbox} from "react";
 import "./Compras.css";
-import "./css/materialize.css";
-import logo from "./images/home.svg"
+import logo from "./images/home.png"
 import cart from "./images/cart.svg"
 import Cookies from "universal-cookie";
 
@@ -27,9 +26,7 @@ async function getOrdersByUserId(id){
 
 }
 
-function goto(path){
-  window.location = window.location.origin + path
-}
+
 
 
 function logout(){
@@ -74,14 +71,14 @@ function showUserOrders(orders){
 
   <div obj={order} key={order.order_id} className="order" onClick={()=>showDetails(order.order_id)}>
     <a className="ordern">Orden: {order.order_id}       </a>
-    <a className="date">Fecha: {order.date.split("T")[0]}       </a>
+    <a className="date">Fecha:     {order.date.split("T")[0]}       </a>
     <a className="total">Total: <span>{"$" + order.total}  </span></a>
 
     <div className={"details" + " o" + order.order_id + " hidden"}>
       <table>
         <thead>
-          <tr className="detail thead">
-          <td className="name">ID</td>
+          <tr>
+            <td className="name">ID</td>
             <td className="name">Producto</td>
             <td className="quantity">Cantidad</td>
             <td className="price">Precio</td>
@@ -131,24 +128,24 @@ function User() {
   )
 
   const showUserInfo = (
-    <div className="userInfo">
-      <div> {user.first_name} {user.last_name} </div>
-      <div> Username: {user.username} </div>
-      <div>{orders.length > 0 ? showUserOrders(orders) : <a> NO HAY ORDENES</a>}</div>
+    <div>
+      <div className="Nombre">Compras de {user.first_name} {user.last_name} </div>
+      <div className="Username"> Username: {user.username} </div>
+      <div >{orders.length > 0 ? showUserOrders(orders) : <a className="norders"> NO HAY COMPRAS</a>}</div>
     </div>
   )
 
   const pleaseLogin = (
-    <div> INICIE SESION PARA VER SUS COMPRAS </div>
+    <a href="/login"><button className="inciesesion">INICIE SESION PARA VER SUS COMPRAS </button> </a>
   )
 
   return (
     <div className="home">
-<nav class=" yellow accent-2 ">
+<nav class=" purple ">
         <div class="nav-wrapper">
-          <a href="/" class="brand-logo center blue-text text-darken-2"><img src={logo} width="50px" height="70px"/> </a>
+          <a href="/" class="brand-logo center blue-text text-darken-2"><img src={logo} width="80px" height="60px"/> </a>
           <ul id="nav-mobile" class="right hide-on-med-and-down">
-          <li><a class="black-text" onClick={logout}>Cerrar Sesion</a></li>
+          <li><a className="Sesion" onClick={logout}>Cerrar Sesion</a></li>
           </ul>
         </div>
       </nav>

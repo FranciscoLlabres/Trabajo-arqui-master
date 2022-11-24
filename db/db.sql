@@ -44,11 +44,8 @@ CREATE TABLE `orders` (
 INSERT INTO `orders` (`id`, `user_id`, `address_id`, `date`, `total`, `currency_id`) VALUES
 (1, 1, 0, '2022-07-14', '19978', 'ARS'),
 (19, 1, 0, '2022-07-14', '173499', 'ARS'),
-(20, 1, 0, '2022-07-14', '3229', 'ARS'),
-(21, 1, 0, '2022-07-14', '3059', 'ARS'),
-(22, 1, 0, '2022-07-14', '164', 'ARS'),
-(23, 1, 0, '2022-07-14', '2755', 'ARS'),
-(24, 1, 0, '2022-07-18', '1427', 'ARS');
+(20, 1, 0, '2022-07-14', '3229', 'ARS');
+
 
 -- --------------------------------------------------------
 
@@ -73,12 +70,8 @@ CREATE TABLE `order_details` (
 INSERT INTO `order_details` (`order_detail_id`, `order_id`, `product_id`, `quantity`, `price`, `currency_id`, `name`) VALUES
 (NULL, 1, 261, 2, '9989', 'ARS', 'Boxer Hombre Briganti Algod?n Combinado Pack X 6 Hxim09524'),
 (NULL, 19, 55, 1, '173499', 'ARS', 'Apple iPhone 11 (128 GB) - Blanco'),
-(NULL, 20, 47, 1, '3229', 'ARS', 'Alcatel 3H 64 GB elegant black 3 GB RAM'),
-(NULL, 21, 224, 2, '949', 'ARS', 'Caf? au lait en c?psula Nescaf? Dolce Gusto 16?u'),
-(NULL, 21, 240, 1, '1161', 'ARS', 'Caf? avvolgente en c?psula Lavazza 10?u'),
-(NULL, 22, 174, 1, '164', 'ARS', 'Adaptador Enchufe Viajero Ingl?s Uk Europeo Subte A'),
-(NULL, 23, 341, 1, '2755', 'ARS', 'Dinosaurio T. Rex Super Gigante Juguete De Goma 70x60cm'),
-(NULL, 24, 140, 1, '1427', 'ARS', 'Pelota Esferodinamia Fitness Pilates Yoga 65 Cm Oferta!!');
+(NULL, 20, 47, 1, '3229', 'ARS', 'Alcatel 3H 64 GB elegant black 3 GB RAM');
+
 
 --
 -- Estructura de tabla para la tabla `users`
@@ -99,7 +92,8 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`user_id`, `username`, `password`, `first_name`, `last_name`, `email`) VALUES
 (1, 'juli912', 'river123', 'Julian', 'Gergolet', '2012598@ucc.edu.ar'),
-(2, 'franll', 'fran1', 'Fransisco', 'Llables', '2012791@ucc.edu.ar');
+(2, 'franll', 'fran1', 'Fransisco', 'Llables', '2012791@ucc.edu.ar'),
+(3, 'sant1', 'santiagoaguero', 'Santiago', 'Aguero', '2212471@ucc.edu.ar');
 
 -- --------------------------------------------------------
 
