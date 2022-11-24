@@ -1,7 +1,7 @@
 import React, { useState, List, Checkbox} from "react";
-import "./Cart.css";
+import "./css/Cart.css";
+import "./css/materialize.css"
 import logo from "./images/home.png"
-import cart from "./images/cart.svg"
 import Cookies from "universal-cookie";
 
 const Cookie = new Cookies();

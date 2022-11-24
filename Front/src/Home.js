@@ -1,7 +1,6 @@
 import React, { useState } from "react";
-import "./Home.css";
+import "./css/Home.css";
 import logo from "./images/home.png"
-import cart from "./images/cart.svg"
 import Cookies from "universal-cookie";
 
 const Cookie = new Cookies();
@@ -241,7 +240,7 @@ function Home() {
   const renderFailedSearch = (
     <a>NO SE ENCUENTRA PRODUCTO</a>
   )
-
+  
   return (
     <div className="home">
       <nav class=" purple">
@@ -249,7 +248,7 @@ function Home() {
             <form className="col ">
               <div class="input-field">
               <input className="barra" placeholder="Buscar productos" onKeyDown={(e) => e.keyCode === 13 ? searchQuery(e.target.value) : void(0)} />
-                <input  type="search" required onChange={search}/>
+                <input  className="hidden" type="search" required onChange={search}/>
                 <label class="label-icon" for="search" className="Lupa"><i class="material-icons black-text">search</i></label>
                 <i class="material-icons black-text" onClick={() => categories(0)}>close</i>
               </div>

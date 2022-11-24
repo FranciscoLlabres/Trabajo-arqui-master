@@ -1,7 +1,6 @@
 import React, { useState } from "react";
-import "./Order.css";
+import "./css/Order.css";
 import logo from "./images/home.png"
-import cart from "./images/cart.svg"
 import Cookies from "universal-cookie";
 
 const Cookie = new Cookies();
